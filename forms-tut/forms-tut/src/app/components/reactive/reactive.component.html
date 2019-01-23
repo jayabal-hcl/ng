@@ -1,0 +1,132 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+        <h2>Customer Form</h2>
+        <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+
+            <!-- name -->
+              <div formGroupName="name" class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <!-- <label for="">First Name</label> -->
+                        <input type="text" 
+                          formControlName="firstName" 
+                          name="firstName" 
+                          class="form-control" 
+                          placeholder="First Name">
+                          <!-- alert message -->
+                          <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid"  role="alert">Please enter your first name</div>
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <!-- <label for="">Last Name</label> -->
+                        <input type="text" 
+                          formControlName="lastName" 
+                          name="lastName" 
+                          class="form-control" 
+                          placeholder="Last Name">
+                          <!-- alert message -->
+                          <div class="alert alert-danger" *ngIf="lastName.touched && lastName.invalid">Last name is required</div>
+                      </div>
+                </div>
+              </div>
+
+              <!-- contact -->
+              <div formGroupName="contact" class="row">
+                  <div class="col-6">
+                      <div class="form-group">
+                          <!-- <label for="">E-mail</label> -->
+                          <input type="text" 
+                            formControlName="email" 
+                            name="email" 
+                            class="form-control" 
+                            placeholder="E-mail">
+                            <!-- alert message -->
+                            <div class="alert alert-danger"
+                              *ngIf="email.touched && email.invalid && email.errors.required"
+                            >Email is required</div>
+                            <!-- <div class="alert alert-danger" 
+                              *ngIf="email.dirty && email.invalid && email.errors.invalidEmail">
+                                Value has to be a valid email address.
+                            </div> -->
+                        </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="form-group">
+                          <!-- <label for="">Contact Number</label> -->
+                          <input type="text" 
+                            formControlName="mobile" 
+                            name="mobile" 
+                            class="form-control" 
+                            placeholder="Contact Number">
+                            <!-- alert message -->
+                            <div class="alert alert-danger" 
+                              *ngIf=" (mobile.dirty || mobile.touched) && mobile.invalid && mobile.errors.required">
+                                Mobile is required.</div>
+                              <!-- <div class="alert alert-danger" 
+                                *ngIf=" mobile.dirty && mobile.errors.invalidNumber">
+                                Value has to be a number.</div> -->
+                        </div>
+                  </div>
+                </div>
+
+              <!-- Address -->
+              <h6>Address</h6>
+              <div formGroupName="address">
+                  <div class="row">
+                      <div class="col-12">
+                          <div class="form-group">
+                              <input type="text" 
+                                formControlName="street" 
+                                name="street" 
+                                class="form-control" 
+                                placeholder="Street">
+                            </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-4">
+                          <div class="form-group">
+                              <input type="text" 
+                                formControlName="city" 
+                                name="city" 
+                                class="form-control" 
+                                placeholder="City">
+                            </div>
+                      </div>
+                      <div class="col-4">
+                          <div class="form-group">
+                              <input type="text" 
+                                formControlName="state" 
+                                name="state" 
+                                class="form-control" 
+                                placeholder="State">
+                            </div>
+                      </div>
+                      <div class="col-4">
+                          <div class="form-group">
+                              <input type="text" 
+                                formControlName="zip" 
+                                name="zip" 
+                                class="form-control" 
+                                placeholder="Zip code">
+                            </div>
+                      </div>
+                    </div>
+              </div>
+            
+            
+        
+            <button class="btn btn-primary float-right" >Submit</button>
+          </form>
+    </div>
+    <div class="col-md-6 col-sm-12">
+       <div class="form-result">
+          <app-customer-list></app-customer-list>
+       </div>
+    </div>
+  </div>
+
+</div>

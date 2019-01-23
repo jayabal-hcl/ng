@@ -1,0 +1,11 @@
+<div class="">
+  <h4>Employee List</h4>
+  <div class="list-group">
+    <div class="list-group-item"  *ngFor="let employee of employees | async; let i = index">
+      Name: <strong>{{ employee.name }}</strong> | 
+      Age: <strong>{{ employee.age }}</strong> | 
+      City: <strong>{{ employee.city }}</strong>
+      <button class="btn btn-danger btn-sm float-right" (click)="removeEmployee(i)">Remove</button>
+    </div>
+  </div>
+</div>

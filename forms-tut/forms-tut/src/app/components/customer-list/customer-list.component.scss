@@ -1,0 +1,12 @@
+
+.customer{
+    padding: 15px;
+    margin-bottom: 10px;
+    &:nth-child(odd){
+        background: #feffd1;
+    }
+    p{
+        margin:0;
+        font-size: 14px;
+    }
+}

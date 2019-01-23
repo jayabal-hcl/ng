@@ -1,0 +1,22 @@
+<div class="list-group" >
+    <div class="card customer" *ngFor="let customer of customers | async; let i = index">
+      <div class="row">
+        <div class="col">
+            <h6>#000{{ i }}</h6>
+            <p>Name: {{ customer.name.firstName }} {{ customer.name.lastName }}</p>
+            <p>Email: <a href="mailto:{{ customer.contact.email}}">{{ customer.contact.email}}</a></p>
+            <p>Mobile:<a href="tel:{{ customer.contact.mobile }}">{{ customer.contact.mobile }}</a></p>
+        </div>
+        <div class="col">
+            <address>
+                <h6>Address</h6>
+                <p>{{ customer.address.street }}</p>
+                <p>{{ customer.address.city }}, {{ customer.address.state }}</p>
+                <p>{{ customer.address.zip }}</p>
+              </address>
+              <button (click)="deleteCard(i)" class="btn btn-danger btn-sm float-right">Delete</button>
+              <button (click)="updateCard(i)" class="btn btn-primary btn-sm float-right">Edit</button>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<form>
+  <h4>Fill your employee details</h4>
+  <div class="form-group">
+    <label class="sr-only" for="name">Name</label>
+    <input id="age" type="text" class="form-control" placeholder="Name" #name>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="age">Age</label>
+    <input id="age" type="text" class="form-control" placeholder="Age" #age>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="name">City</label>
+    <input type="text" class="form-control" placeholder="City" #city>
+  </div>
+  <button class="btn btn-primary float-right" (click)="addEmployee(name.value, age.value, city.value, $event)">Add Employee</button>
+</form>
